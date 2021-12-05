@@ -1,0 +1,16 @@
+
+.nav{
+  width: 95%;
+  margin: 15px auto;
+  background-color: var(--primary-bg-clr) !important;
+  border-radius: 4px;
+}
+
+.Navbar-img{
+  margin-right: 80px;
+  width: 140px;
+}
+
+.Navbar-img img{
+  width: 100%;
+}

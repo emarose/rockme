@@ -1,0 +1,40 @@
+.homeContainer{
+  background-image: url('./homebg.jpg');
+  background-position: center;
+  min-height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
+  background-color: rgba(0,0,0,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  box-shadow: inset 0 0 150px 150px rgba(0,0,0,0.8);
+
+}
+
+.homeText{
+  margin-top: 200px !important;
+}
+
+.homeText h2{
+  text-shadow: 0 3px 3px rgba(0,0,0,0.5);
+  letter-spacing: 2.2px;
+  color: #fff;
+  font-size: 3.6rem;
+  text-align: center;
+  margin: 50px 0;
+}
+
+.homeText p{
+  text-shadow: 0 3px 3px rgba(0,0,0,0.5);
+  font-size: 2rem;
+  font-style: italic;
+  color: #fff;
+  letter-spacing: .5px;
+}
+.homeText img{
+  
+
+}
