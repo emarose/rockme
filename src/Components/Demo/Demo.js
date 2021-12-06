@@ -8,115 +8,97 @@ import ride from "./sounds/ride.wav";
 import snare from "./sounds/snare.wav";
 import tom from "./sounds/tom.wav";
 import tink from "./sounds/tink.wav";
+import openhat from "./sounds/openhat.wav";
 import { Howler, Howl } from "howler";
 
-//     <audio data-key="65" src="./sounds/clap.wav" />
-//     <audio data-key="83" src="./sounds/hihat.wav" />
-//     <audio data-key="68" src="./sounds/kick.wav" />
-//     <audio data-key="70" src="./sounds/openhat.wav" />
-//     <audio data-key="71" src="./sounds/boom.wav" />
-//     <audio data-key="72" src="./sounds/ride.wav" />
-//     <audio data-key="74" src="./sounds/snare.wav" />
-//     <audio data-key="75" src="./sounds/tom.wav" />
-//     <audio data-key="76" src="./sounds/tink.wav" />
-
-
 function Demo() {
-
   const audioClips = [
-    { sound: boom, label: "boom" },
-    { sound: clap, label: "clap" },
-    { sound: hihat, label: "hi-hat" },
-    { sound: kick, label: "kick" },
-    { sound: ride, label: "ride" },
-    { sound: snare, label: "snare" },
-    { sound: tom, label: "tom" },
-    { sound: tink, label: "tink" },
+    { sound: boom, label: "Boom", key: "A" },
+    { sound: clap, label: "Clap", key: "S" },
+    { sound: hihat, label: "Hi-hat", key: "D" },
+    { sound: kick, label: "Kick", key: "F" },
+    { sound: openhat, label: "Openhat", key: "G" },
+    { sound: ride, label: "Ride", key: "H" },
+    { sound: snare, label: "Snare", key: "J" },
+    { sound: tom, label: "Tom", key: "K" },
+    { sound: tink, label: "Tink", key: "L" },
   ];
 
   const soundPlay = (src) => {
     const sound = new Howl({
       src,
-      html5: true
-    })
+      html5: true,
+    });
     sound.play();
-  }
+  };
 
-  Howler.volume(0.5);
+  Howler.volume(1);
 
   const RenderButtonAndSound = () => {
     return audioClips.map((soundObj, index) => {
       return (
-        <button key={index} onClick={() => soundPlay(soundObj.sound)}>
-          {soundObj.label}
+        <button
+          className="key"
+          key={index}
+          onClick={() => soundPlay(soundObj.sound)}
+        >
+          <h2>{soundObj.key}</h2>
+          <span>{soundObj.label}</span>
         </button>
       );
     });
   };
-  
+
   const handleKeyPress = useCallback((event) => {
-    const newSound = new Howl({
-      src: ['./sounds/boom.wav'],
-      html5: true
-    })
+    const { keyCode } = event;
+    console.log(keyCode);
 
-    const { key, keyCode } = event;
+    const audio = document.querySelector(`audio[data-key="${event.keyCode}"]`);
     
-    console.log(event, key, keyCode)
-    
-    switch (keyCode) {
-      case 65:
-        console.log("A");
-        newSound.play();
-        soundPlay([audioClips.sound])   
-        break;
-      case 83:
-        console.log("S");
-        break;
-      case 68:
-        console.log("D");
-        break;
-      case 70:
-        console.log("F");
-        break;
-      case 71:
-        console.log("G");
-        break;
-      case 72:
-        console.log("H");
-        break;
-      case 74:
-        console.log("J");
-        break;
-      case 75:
-        console.log("K");
-        break;
-      case 76:
-        console.log("L");
-        break;
+    if (!audio) return;
 
-      default:
-        break;
-    }
-  }, [audioClips]);
+    audio.currentTime = 0;
+    audio.play();
+  }, []);
 
-  
   useEffect(() => {
     
     window.addEventListener("keydown", handleKeyPress);
     return () => {
       window.removeEventListener("keydown", handleKeyPress);
+      
     };
   }, [handleKeyPress]);
 
-  return <>
+  function removeTransition(e) {
+    if (e.propertyName !== "transform") {
+      this.classList.remove(".playing");
+    }
+  }
 
-    <div className="containerDemo">
-      <div className="displayContainer">
-      {RenderButtonAndSound()}
+  const keys = document.querySelectorAll(".key");
+
+  keys.forEach((key) =>
+    key.addEventListener("transitionend", removeTransition())
+  );
+
+  return (
+    <>
+      <audio className="key" data-key="65" src={clap} />
+      <audio className="key" data-key="83" src={hihat} />
+      <audio className="key" data-key="68" src={kick} />
+      <audio className="key" data-key="70" src={openhat} />
+      <audio className="key" data-key="71" src={boom} />
+      <audio className="key" data-key="72" src={ride} />
+      <audio className="key" data-key="74" src={snare} />
+      <audio className="key" data-key="75" src={tom} />
+      <audio className="key" data-key="76" src={tink} />
+
+      <div className="containerDemo">
+        <div className="displayContainer">{RenderButtonAndSound()}</div>
       </div>
-    </div>
-    </>;
+    </>
+  );
 }
 
 export default Demo;

@@ -1,7 +1,7 @@
 import React from 'react'
 import logo from './logo.png'
 import './Menu.css'
-import { Container, NavLink, Nav, Navbar, NavDropdown } from 'react-bootstrap'
+import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 function Menu() {
