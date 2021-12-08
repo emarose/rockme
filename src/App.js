@@ -1,10 +1,11 @@
 import "./App.css";
 import React, { useEffect } from "react";
 import AOS from "aos";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home/Home";
 import Menu from "./Components/Menu/Menu";
-import Demo from "./Pages/DemoPage/DemoPage"
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import DemoPage from "./Pages/DemoPage/DemoPage"
+import FeaturesPage from "./Pages/FeaturesPage/FeaturesPage";
 
 function App() {
   useEffect(() => {
@@ -22,7 +23,8 @@ function App() {
         <Menu />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/demo" element={<Demo />} />
+          <Route path="/demo" element={<DemoPage />} />
+          <Route path="/features" element={<FeaturesPage />} />
         </Routes>
       </BrowserRouter>
     </>

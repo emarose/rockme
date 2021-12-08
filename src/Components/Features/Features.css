@@ -1,0 +1,118 @@
+.featuresHero{
+  background-color:grey ;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 !important;
+}
+
+.featuresHeroLeft{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--background-dark);
+  min-height: 100vh;
+  width: 50%;
+  letter-spacing: 0.0125rem;
+  color: #fff;
+}
+
+.featuresHeroLeft b{
+  text-shadow: 0 0 4px #fff;
+}
+
+.featuresHeroLeft h2{
+  font-size: 4em;
+  width: 70%;
+  text-align: left;
+}
+.featuresHeroLeft p{
+  width: 70%;
+  margin: 15px 0;
+  line-height: 1.8;
+  font-size: 1.20em;
+}
+.featuresHeroLeft button{
+  margin-top: 50px;
+  padding: 15px 35px;
+  border: none;
+  border-radius: 25vw;
+  font-weight: 600;
+  color: #fff;
+  background-color: var(--primary-bg-clr);
+  transition: 0.4s all;
+}
+.featuresHeroLeft button:hover{
+  box-shadow: 0 0 8px 1px  white;
+  background-color: var(--primary-accent-clr);
+}
+
+.featuresHeroRight{
+  width: 50%;
+  min-height: 100vh;
+  background: url("./img/soundControl-bg.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.featuresInstruments{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 0 !important;
+  background: url("./img/instruments.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.featuresInstruments h2{
+  text-align: center;
+  font-size: 3em;
+  width: 70%;
+  margin: 165px auto 50px auto;
+}
+.featuresInstruments p{
+  text-align: center;
+  width: 70%;
+  font-size: 1.3rem;
+  margin: 0 auto 50px auto;
+}
+.featuresInstruments button{
+  width: fit-content;
+  margin: 0 auto;
+  transform: translateX(15em);
+  border:none;
+  border-radius: 25vw;
+  padding: 15px 35px;
+  background-color: var(--primary-accent-clr);
+  color: #fff;
+  font-weight: 600;
+  transition: 0.4s;
+}
+
+.featuresInstruments button:hover{
+  box-shadow: 0 0 8px 1px rgba(0,0,0,0.3);
+  background-color: var(--primary-bg-clr);
+}
+
+@media screen and (max-width: 1000px) {
+  .featuresHeroLeft h2{
+    font-size: 2.8em;
+  }
+  .featuresInstruments button{
+    transform: translateX(7em);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .featuresHeroLeft h2{
+    font-size: 1.8em;
+  }
+
+  .featuresInstruments button{
+    transform: translateX(5em);
+  }
+}

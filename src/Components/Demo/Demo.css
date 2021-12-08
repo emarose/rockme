@@ -20,19 +20,20 @@
   gap:30px;
 }
 
-.displayContainer button{
+.key{
   white-space: nowrap;
   min-width:80px;
   aspect-ratio: 1;
-  border: none;
+  border: 1px solid var(--secondary-accent-clr);
   border-radius: 8px;
   outline: 3px solid var(--primary-bg-clr);
-}
-.key{
   text-align: center;
-  transition: all 0.7s;
+  transition: all 0.5s;
   background-color: rgba(0,0,0,0.7);
   color: #fff;
+}
+.key:hover{
+  cursor: pointer;
 }
 .key h2{
   text-shadow: 2px 2px 5px black;
@@ -42,6 +43,13 @@
   color:var(--secondary-accent-clr);
 }
 .playing{
-  transform: scale(2.1);
-  background-color: red;
+  transform: scale(1.1);
+  color:var(--primary-accent-clr);
+  border-color: black;
+  background-blend-mode: darken;
+  box-shadow: 0 0 10px var(--primary-bg-clr);  
+}
+
+.playing span{
+  color:#fff;
 }

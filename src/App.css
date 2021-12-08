@@ -5,7 +5,8 @@
   --primary-bg-clr: #441151;
   --primary-accent-clr: #883677;
   --secondary-accent-clr: #CA61C3;
+  --background-dark: rgba(10,0,11,1)
 }
-#root{
-  background-color: rgba(90,0,100,0.1);
+body{
+  background-color: var(--background-dark);
 }
