@@ -7,6 +7,9 @@ import Menu from "./Components/Menu/Menu";
 import DemoPage from "./Pages/DemoPage/DemoPage"
 import FeaturesPage from "./Pages/FeaturesPage/FeaturesPage";
 
+// GIT BRANCH MAIN
+
+
 function App() {
   useEffect(() => {
     AOS.init({
